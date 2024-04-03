@@ -1,14 +1,15 @@
 //1
 let titulo = document.getElementById("titulo")
+titulo.className="font-bold"
 //2
 let tituloPrincipal = "Frutas"
 titulo.innerHTML = tituloPrincipal
 // console.log(titulo)
 //3
 let headerAndFooter = document.getElementsByClassName("headerYfooter")
+// headerAndFooter[0].className = " bg-yellow-500"
 // console.log(document.querySelectorAll(".headerYfooter").className += " text-yellow-700")
 // console.log([headerAndFooter])
-// headerAndFooter[0].className = " bg-yellow-500"
 // headerAndFooter[0].style.backgroundColor= "#FFA233"
 // headerAndFooter[1].style.backgroundColor= "#FFA233"
 
@@ -32,11 +33,11 @@ divCard.setAttribute("id", "contenedor")
 //6
 
 let createCard = function( objeto ){
-    return `<div class="flex flex-col w-3/4 md:w1/3 lg:w-1/5 p-1 bg-yellow-200 shadow-lg m-8">
+    return `<div class="flex flex-col w-60 bg-yellow-200 shadow-lg m-8">
                 <img src="${objeto.foto}" alt="${objeto.name}">
             <div class="flex flex-col p-1">
                 <h2 class="text-center">nombre : ${objeto.nombre}</h2>
-                <p>descripcion : ${objeto.descripcion}</p>
+                <p class="m-4">descripcion : ${objeto.descripcion}</p>
             </div>
         </div>`
 }
@@ -67,12 +68,14 @@ divLista.setAttribute("id" , "lista")
 let tituloFrutas = document.createElement("h2")
 tituloFrutas.innerText = "Frutas dulces"
 document.getElementById("lista").appendChild(tituloFrutas)
+tituloFrutas.className = "font-bold text-center"
 // console.log(document.getElementById("lista").children)
 
 //10
 let ulLista = document.createElement("ul")
-document.body.children[1].appendChild(ulLista)
-ulLista.setAttribute("id" , "idListaDesordenada")
+ulLista.className="list-disc m-20"
+// document.body.children[1].appendChild(ulLista)
+// ulLista.setAttribute("id" , "idListaDesordenada")
 
 
 
@@ -84,9 +87,17 @@ let crearLi = obj => `<li> ${obj} </li>`
 let agregarLista = (array, contenedor) => {
     for (const nombre of array) {
         contenedor.innerHTML += crearLi(nombre)
-        contenedor.appendChild(ulLista)
     }
 } 
 
+agregarLista(arrayEsDulce, ulLista)
 
 
+let contenedorLista = document.getElementById("lista")
+
+
+contenedorLista.appendChild(ulLista)
+
+console.log(contenedorLista)
+
+document.getElementById("contenedor").className="flex flex-wrap justify-center"
